@@ -1,0 +1,43 @@
+body{
+  font-size: 22px;
+  width: 65%;
+  font-family: monospace ;
+  color: #4bb6a7;
+  background-image: url(../img/spaceback.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
+  margin: 5% auto;
+}
+
+form{
+  width: 46%;
+  height: 80px;
+  display: table;
+}
+
+form input {
+  padding: 15px;
+  height: 25px;
+  font-family: monospace;
+  border: 0;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+form #submit {
+  cursor: pointer;
+  color: #FFF;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #4bb6a7;
+  height: 50px;
+}
+
+form #submit:disabled {
+  background-color: #212121
+}
+
+#pic{
+  margin-top: 30px;
+  margin-left: 400px;
+}
