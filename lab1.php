@@ -54,7 +54,7 @@
 <body>
   <table border="0">
     <?php
-      if ($_POST['x']) { 
+      if (isset($_POST['x']) { 
       determine_quadrant($_POST['x'], $_POST['y'], $_POST['r']);
       }
     ?>
