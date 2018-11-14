@@ -7,7 +7,7 @@
 //     }
 //     document.getElementById("submit").disabled = false;
 //   }
-
+  
   function checkX(input){
     if(input > 3 || input < -5 || isNaN(input))
     {

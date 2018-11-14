@@ -3,7 +3,7 @@ body{
   width: 65%;
   font-family: monospace ;
   color: #4bb6a7;
-  background-image: url(../img/spaceback.jpg);
+  background-image: url(../PIA_Lab1/img/spaceback.jpg);
   background-size: 100%;
   background-attachment: fixed;
   margin: 5% auto;
@@ -39,5 +39,10 @@ form #submit:disabled {
 
 #pic{
   margin-top: 30px;
-  margin-left: 400px;
+  margin-left: 300px;
+}
+
+table#table1{
+  font-size: 140px;
+  background-color: #f1f1c1;
 }

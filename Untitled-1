@@ -1,0 +1,41 @@
+<th scope = "row">X=
+            <?php
+              
+              // if (isset($_POST['x'])) {
+                //for($i=1;i<=10;$i++)
+                //foreach($_POST['x'] as $value)
+
+                echo $_POST['x'];
+              // }
+            ?> 
+            </th>
+
+            <th scope = "row">Y=
+            <?php
+              // if (isset($_POST['x'])) {
+                echo $_POST['y'];
+              // }
+            ?> 
+            </th>
+
+            <th scope = "row">R=
+            <?php
+              // if (isset($_POST['x'])) {
+                echo $_POST['r'];
+              // }
+            ?> 
+            </th>
+
+            <th scope = "row">Result=
+            <?php echo $result; ?>
+            </th>
+
+            <th scope = "row">
+            <?php echo  date("h:i:sa"); ?>
+            </th>
+
+            <th scope = "row">
+            <?php
+            $executionTime = round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"],5) ;
+            echo "\nExec: $executionTime"; ?>
+            </th>
