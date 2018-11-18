@@ -57,16 +57,14 @@
 </head>
 
 <body>
-  <table border="0">
+  <table id="table" border="0">
     <?php
     //sleep(10);
-     // $executionStartTime = microtime(true);
+     
       if (isset($_POST['x'])) { 
-      array_push($_SESSION['values'], array("x" => $_POST['x'], "y" => $_POST['y'], "r" => $_POST['r']));
       determine_quadrant($_POST['x'], $_POST['y'], $_POST['r']);
       }
-      
-      //$executionEndTime = microtime(true);
+    
     ?>
           <form method="POST">
 
@@ -98,30 +96,25 @@
       <input id="submit" name="Check" type="submit">
       </th>    
     </tr>
-    <!-- <tr>
-    <th></th> 
-             <th></th> 
-    </tr> -->
+  
     <tr>
       <th colspan="3" scope="row">Result: <?php echo $result; ?>
       </th>    
     </tr>
-     <!-- <tr>
-   
-      <th scope="col">Result: <?php echo $result; ?></th>
-      <th>Exec:<span id="exec"></span></th> 
-
-    </tr>  -->
+    
 
      <tr>
       <th colspan="3" scope="row">
       <span id="datetime">
       <?php
-          //$seconds = $executionEndTime - $executionStartTime;
+          global $result;
+
           if (isset($_POST['x'])) { 
             date_default_timezone_set('Europe/Moscow');
             echo date("h:i:sa");
-            $executionTime = round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"],5) ;
+            $executionTime = round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"],5);
+            array_push($_SESSION['values'], array("x" => $_POST['x'], "y" => $_POST['y'], "r" => $_POST['r'], 
+            "result" => $result, "time" => date("h:i:sa"), "exectime" => $executionTime));
             echo "\nExec: $executionTime";
           }
         ?>
@@ -132,54 +125,49 @@
     <tr >
     <th></th>
       <th scope="row">Программирование интернет-приложений 2018 г.</th>
-      <!-- <th scope="row" id="time">Time:
-        <span id="datetime">
-        <?php
-          //$seconds = $executionEndTime - $executionStartTime;
-          if (isset($_POST['x'])) { 
-            date_default_timezone_set('Europe/Moscow');
-            echo  date("h:i:sa");
-            $executionTime = round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"],5) ;
-            echo "\nExec: $executionTime";
-          }
-        ?>
-      </span>
-    </th> -->
-      <!-- <script>
-        var dt = new Date();
-document.getElementById("datetime").innerHTML = document.getElementById("datetime").innerHTML = 
-        (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-      </script> -->
+      
     </tr>
   </table>
   </form>
 
-</body>
 <img id="pic" src="img/areas.png" width="550" height="350"/>
-<a href="logout.php">Logout</a>
-</html>
 
-<body>
 <?php
  
-              if (isset($_POST['x'])) {
+              if (isset($_SESSION['values'])) {
                 ?>
   <table id="table1" border="1" style="display:">
           <tr>
-            <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Result</th>
+            <th>Time</th>
+            <th>ExecTime</th>
+          </tr>
+
+          <?php
+            if(count($_SESSION['values']) == 0) {
+          ?>
+              <tr>
+                <th colspan="6">No results to display.</td>
+              </tr>
+          <?php
+            }
+          ?>
+
           <?php
             foreach($_SESSION['values'] as $value) {
-              ?>
-            <th scope = "row">X=
+          ?>
+           <tr>
+            <th scope = "row">
             <?php
 
 
                 echo $value['x'];
             ?> 
             </th>
-            </tr>
-            <tr>
-            <th scope = "row">Y=
+            <th scope = "row">
             <?php
 
 
@@ -187,7 +175,7 @@ document.getElementById("datetime").innerHTML = document.getElementById("datetim
             ?> 
             </th>
 
-            <th scope = "row">R=
+            <th scope = "row">
             <?php
 
 
@@ -195,11 +183,44 @@ document.getElementById("datetime").innerHTML = document.getElementById("datetim
             ?> 
             </th>
 
+            <th scope = "row">
+            <?php
+
+
+                echo $value['result'];
+            ?> 
+            </th>
+
+            <th scope = "row">
+            <?php
+
+
+                echo $value['time'];
+            ?> 
+            </th>
+
+            <th scope = "row">
+            <?php
+
+
+                echo $value['exectime'];
+            ?> 
+            </th>
+            <tr>
+
               <?php
             }
           ?>
-         </tr>
-          </tr>
+
+          <?php
+            if(count($_SESSION['values']) > 0) {
+          ?>
+              <tr height = "50">
+                <th colspan="6"><a id="clear" href="logout.php"><input value="Clear Results" type="button"></a></td>
+              </tr>
+          <?php
+            }
+          ?>
   </table>
             
   <?php
@@ -207,3 +228,4 @@ document.getElementById("datetime").innerHTML = document.getElementById("datetim
   ?>
             
 </body>
+</html>

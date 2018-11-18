@@ -1,5 +1,5 @@
 body{
-  font-size: 22px;
+  font-size: 20px;
   width: 65%;
   font-family: monospace ;
   color: #4bb6a7;
@@ -7,6 +7,10 @@ body{
   background-size: 100%;
   background-attachment: fixed;
   margin: 5% auto;
+}
+
+table#table{
+  margin-left: -300px;
 }
 
 form{
@@ -39,10 +43,12 @@ form #submit:disabled {
 
 #pic{
   margin-top: 30px;
-  margin-left: 300px;
+  margin-left: -100px;
 }
 
 table#table1{
-  font-size: 140px;
-  background-color: #f1f1c1;
+  /* background-color: #f1f1c1; */
+  margin-left: 650px;
+  margin-top: -620px;
+  width: 850px;
 }
