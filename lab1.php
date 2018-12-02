@@ -63,9 +63,21 @@
     //sleep(10);
 
       if (isset($_POST['x'])) { 
+        if(!is_numeric($_POST['x']) || !is_numeric($_POST['y']) || !is_numeric($_POST['r']) 
+      || $_POST['x']=='' || $_POST['y']=='' || $_POST['r']=='' 
+      || $_POST['x'] < -5 || $_POST['x'] > 3 
+      || $_POST['y'] <= -3 || $_POST['y'] >= 3 
+      || $_POST['r'] < 2 ||$_POST['r'] > 5){
+        echo"<tr><td colspan=6>INVALID HAHA</td></tr>";
+      }
+      else{
       determine_quadrant($_POST['x'], $_POST['y'], $_POST['r']);
       }
-        
+    }
+      // $x = $_POST['x'];
+      // $y = $_POST['y'];
+      // $r = $_POST['r'];
+      
     ?>
           <form method="POST">
 
