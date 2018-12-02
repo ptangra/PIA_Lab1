@@ -42,6 +42,7 @@
     $result = "Inside rectangle";
     else $result = "Outside the rectangle";
   }
+
 ?>
 
 <!DOCTYPE html>
@@ -60,11 +61,11 @@
   <table id="table" border="0">
     <?php
     //sleep(10);
-     
+
       if (isset($_POST['x'])) { 
       determine_quadrant($_POST['x'], $_POST['y'], $_POST['r']);
       }
-    
+        
     ?>
           <form method="POST">
 
@@ -75,25 +76,28 @@
     </tr>
     <tr>
       <th colspan="3" scope="row">
-          <input id="x" name="x" type="text" placeholder="X" onblur="checkX(this.value)" >
+          <input id="x" name="x" type="text" placeholder="X" onblur="validateInput()">
+          <span id="x_error"></span>
       </th>    
     </tr>
 
     <tr>
       <th colspan="3" scope="row">
-          <input id="y" name="y" type="text" placeholder="Y" onblur="checkY(this.value)" >
+          <input id="y" name="y" type="text" placeholder="Y" onblur="validateInput()">
+          <span id="y_error"></span>
       </th>    
     </tr>
 
     <tr>
       <th colspan="3" scope="row">
-      <input id="r" name="r" type="text" placeholder="R" onblur="checkR(this.value)">
+          <input id="r" name="r" type="text" placeholder="R" onblur="validateInput()">
+          <span id="r_error"></span>
       </th>    
     </tr>
     
     <tr>
       <th colspan="3" scope="row">
-      <input id="submit" name="Check" type="submit">
+      <input id="submit" name="Check" type="submit" disabled=true; >
       </th>    
     </tr>
   
@@ -125,7 +129,6 @@
     <tr >
     <th></th>
       <th scope="row">Программирование интернет-приложений 2018 г.</th>
-      
     </tr>
   </table>
   </form>
@@ -163,7 +166,7 @@
             <th scope = "row">
             <?php
 
-
+                
                 echo $value['x'];
             ?> 
             </th>

@@ -3,6 +3,7 @@ body{
   width: 65%;
   font-family: monospace ;
   color: #4bb6a7;
+  /* background-color: #212121; */
   background-image: url(../PIA_Lab1/img/spaceback.jpg);
   background-size: 100%;
   background-attachment: fixed;
